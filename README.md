@@ -9,15 +9,19 @@ This project demonstrates a simple containerized setup using Docker Compose wher
 
 ## 📦 Project Structure
 
+```
 docker-reverse-proxy/
-│── docker-compose.yml
-│── nginx/
+│
+├── docker-compose.yml
+│
+├── nginx/
 │   └── default.conf
-│── backend/
-│   ├── app.py
-│   └── Dockerfile
+│
+└── backend/
+    ├── app.py
+    └── Dockerfile
+```
 
----
 
 ## ⚙️ How It Works
 
