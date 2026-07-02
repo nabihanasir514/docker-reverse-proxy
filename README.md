@@ -1,9 +1,9 @@
-# Docker Reverse Proxy Project
+# 🐳 Docker Reverse Proxy Project
 
-This project demonstrates a simple containerized setup using Docker Compose where:
+This project demonstrates a simple containerized architecture using **Docker Compose**, where:
 
-* Nginx acts as a reverse proxy
-* A Python Flask backend serves a basic response
+* **Nginx** acts as a reverse proxy
+* A **Python Flask backend** serves a basic response
 
 ---
 
@@ -22,30 +22,34 @@ docker-reverse-proxy/
     └── Dockerfile
 ```
 
+---
 
 ## ⚙️ How It Works
 
-* The **backend service** runs a Flask app on port 5000.
-* The **nginx service** listens on port 80 inside the container and forwards all requests to the backend.
+* The **backend service** runs a Flask application on port **5000**.
+* The **nginx service** listens on port **80** inside the container.
+* All incoming requests are forwarded by Nginx to the backend.
 * Docker Compose creates a shared network, allowing services to communicate using service names (e.g., `backend`).
 
 ---
 
 ## 🌐 Network Configuration
 
-* Docker Compose automatically creates a default network.
+* Docker Compose automatically creates a **default bridge network**.
 
-* Services communicate using:
+* Services communicate internally using:
 
+  ```
   http://backend:5000
+  ```
 
-* Nginx uses this internal DNS to forward requests to the backend container.
+* Nginx uses Docker’s built-in DNS to resolve the backend service name.
 
 ---
 
 ## ▶️ How to Run (Step-by-Step)
 
-### 1. Navigate to project folder
+### 1. Navigate to the project folder
 
 ```bash
 cd docker-reverse-proxy
@@ -59,7 +63,7 @@ docker-compose up --build
 
 ### 3. Open in browser
 
-Go to:
+Visit:
 
 ```
 http://localhost:8080
@@ -73,7 +77,7 @@ Hello from Backend
 
 ---
 
-## ⛔ Stop Containers
+## ⛔ Stopping the Containers
 
 Press:
 
@@ -89,11 +93,20 @@ docker-compose down
 
 ---
 
-## ✅ Summary
+## ✅ Key Takeaways
 
-* Nginx acts as a reverse proxy
-* Backend runs independently in another container
-* Docker Compose connects them via an internal network
-* Clean separation of concerns (proxy vs application)
+* Nginx acts as a **reverse proxy**
+* Backend runs in a **separate container**
+* Docker Compose enables **service-to-service communication**
+* Clean separation between **application layer and proxy layer**
+
+---
+
+## 🚀 Future Improvements (Optional)
+
+* Add **load balancing** with multiple backend instances
+* Implement **health checks**
+* Use **Node.js backend** as an alternative
+* Deploy on cloud platforms like **AWS / Render**
 
 ---
